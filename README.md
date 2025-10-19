@@ -46,15 +46,39 @@ Bot de análise esportiva automática com integração à API-Football, oferecen
 
 ## ⚙️ Configuração
 
-### 1. Clone o repositório e instale as dependências
+### 🚀 Instalação Automática (Recomendado)
+
+Execute **apenas um comando** para configurar tudo automaticamente:
+
+```bash
+bun run setup
+```
+
+O instalador interativo irá:
+- ✅ Verificar pré-requisitos
+- ✅ Configurar variáveis de ambiente
+- ✅ Validar credenciais do Supabase
+- ✅ Executar migrations
+- ✅ Criar usuários de teste
+- ✅ Iniciar o servidor
+
+**Leia a documentação completa:** [INSTALL.md](INSTALL.md)
+
+---
+
+### 📝 Instalação Manual (Alternativa)
+
+Se preferir configurar manualmente:
+
+#### 1. Instale as dependências
 
 ```bash
 bun install
 ```
 
-### 2. Configure as variáveis de ambiente
+#### 2. Configure as variáveis de ambiente
 
-Você precisa configurar as seguintes variáveis no arquivo `.env`:
+Crie o arquivo `.env` com as seguintes variáveis:
 
 ```env
 DATABASE_URL="sua-connection-string-do-supabase"
@@ -76,17 +100,13 @@ API_FOOTBALL_KEY="74a6034a3a4aa3556afb41cc0f7f048a"
 openssl rand -base64 32
 ```
 
-### 3. Verifique as variáveis de ambiente
-
-Acesse `http://localhost:3000/env-check` para verificar se todas as variáveis estão configuradas corretamente.
-
-### 4. Configure o banco de dados
+#### 3. Configure o banco de dados
 
 ```bash
 bunx prisma migrate dev --name init
 ```
 
-### 5. Crie usuários de teste
+#### 4. Crie usuários de teste
 
 ```bash
 bun run db:seed
@@ -96,7 +116,7 @@ Isso criará:
 - **Usuário Teste**: `teste@sportbot.com` / `Teste@123`
 - **Usuário Admin**: `admin@sportbot.com` / `Admin@123`
 
-### 6. Inicie o servidor de desenvolvimento
+#### 5. Inicie o servidor de desenvolvimento
 
 ```bash
 bun run dev
@@ -159,6 +179,7 @@ Todos os componentes estão em `components/ui/` usando shadcn/ui:
 ## 🔧 Scripts Disponíveis
 
 ```bash
+bun run setup        # 🚀 Instalador automático interativo
 bun run dev          # Inicia servidor de desenvolvimento
 bun run build        # Build para produção
 bun run start        # Inicia servidor de produção
