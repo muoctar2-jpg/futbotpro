@@ -220,10 +220,47 @@ A chave da API-Football já está configurada no projeto. O serviço está em `l
 4. **Análise em Tempo Real**: Bot automático executando análises
 5. **Resultados Públicos**: Página pública com estatísticas gerais
 
+## 📤 Exportar para Git
+
+### Método Automático (Mais Fácil)
+
+```bash
+./scripts/export-to-github.sh SEU-USUARIO
+```
+
+### Método Manual
+
+```bash
+# 1. Criar repositório no GitHub
+# 2. Conectar repositório local
+git remote add origin https://github.com/SEU-USUARIO/futprobot.git
+git branch -M main
+git push -u origin main
+```
+
+**Leia o guia completo:** [GIT_EXPORT.md](GIT_EXPORT.md)
+
+## 🚀 Deploy
+
+### Vercel (Recomendado)
+
+1. Acesse: https://vercel.com
+2. Import o repositório do GitHub
+3. Configure as variáveis de ambiente
+4. Deploy!
+
+### Configurar Domínio
+
+Para usar `futprobot.com`:
+1. Registre o domínio
+2. Na Vercel: Settings → Domains
+3. Adicione seu domínio
+4. Configure DNS
+
 ## 🤝 Contribuindo
 
 Este é um projeto privado. Para contribuir, entre em contato com o administrador.
 
 ## 📄 Licença
 
-Todos os direitos reservados © 2025 SportBot AI
+Todos os direitos reservados © 2025 FutProBot
