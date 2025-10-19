@@ -22,6 +22,12 @@ export const ENV_VARIABLES: EnvVariable[] = [
     description: "Secret key for JWT token generation and validation",
     required: true,
     instructions: "Generate a secure random string (minimum 32 characters). You can use: openssl rand -base64 32"
+  },
+  {
+    name: "API_FOOTBALL_KEY",
+    description: "API-Football API key for fetching sports data",
+    required: false,
+    instructions: "Get your API key from [API-Football](https://www.api-football.com/) dashboard"
   }
 ];
 

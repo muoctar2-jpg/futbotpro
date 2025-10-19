@@ -36,6 +36,7 @@ Bot de análise esportiva automática com integração à API-Football, oferecen
 - **Prisma ORM**
 - **Supabase** (Database & Auth)
 - **JWT** (Autenticação)
+- **API-Football** (Dados esportivos em tempo real)
 
 ## 📋 Pré-requisitos
 
@@ -60,6 +61,7 @@ DATABASE_URL="sua-connection-string-do-supabase"
 NEXT_PUBLIC_SUPABASE_URL="https://seu-projeto.supabase.co"
 NEXT_PUBLIC_SUPABASE_ANON_KEY="sua-chave-anon-do-supabase"
 JWT_SECRET="chave-secreta-minimo-32-caracteres"
+API_FOOTBALL_KEY="74a6034a3a4aa3556afb41cc0f7f048a"
 ```
 
 **Como obter as credenciais do Supabase:**
@@ -84,7 +86,17 @@ Acesse `http://localhost:3000/env-check` para verificar se todas as variáveis e
 bunx prisma migrate dev --name init
 ```
 
-### 5. Inicie o servidor de desenvolvimento
+### 5. Crie usuários de teste
+
+```bash
+bun run db:seed
+```
+
+Isso criará:
+- **Usuário Teste**: `teste@sportbot.com` / `Teste@123`
+- **Usuário Admin**: `admin@sportbot.com` / `Admin@123`
+
+### 6. Inicie o servidor de desenvolvimento
 
 ```bash
 bun run dev
@@ -151,11 +163,37 @@ bun run dev          # Inicia servidor de desenvolvimento
 bun run build        # Build para produção
 bun run start        # Inicia servidor de produção
 bun run db:studio    # Abre Prisma Studio
+bun run db:seed      # Cria usuários de teste
 ```
+
+## 👤 Credenciais de Teste
+
+Após executar `bun run db:seed`, você pode fazer login com:
+
+**Usuário Normal:**
+- Email: `teste@sportbot.com`
+- Senha: `Teste@123`
+- Acesso: Dashboard com dados de exemplo
+
+**Usuário Administrador:**
+- Email: `admin@sportbot.com`
+- Senha: `Admin@123`
+- Acesso: Painel administrativo completo
+
+## 🏈 API-Football
+
+A chave da API-Football já está configurada no projeto. O serviço está em `lib/api-football.ts` e oferece:
+
+- `getTodayMatches()` - Jogos de hoje
+- `getUpcomingMatches(days)` - Jogos futuros
+- `getFixtureStatistics(fixtureId)` - Estatísticas de uma partida
+- `analyzePrediction(match)` - Gera previsão automática
+
+**Limite da API**: 100 requisições/dia (plano gratuito)
 
 ## 📈 Próximos Passos
 
-1. **Integração com API-Football**: Conectar com a API real para dados ao vivo
+1. ✅ **Integração com API-Football**: Já configurado e pronto para uso
 2. **Sistema de Pagamento**: Integrar Mercado Pago ou Stripe
 3. **Notificações**: Email e push notifications
 4. **Análise em Tempo Real**: Bot automático executando análises
