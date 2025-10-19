@@ -6,8 +6,8 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SportBot AI - Bot de Análise Esportiva',
-  description: 'O bot de análise esportiva mais preciso do mercado. Conectado à API-Football, com taxa de acerto superior a 85%.',
+  title: 'FutProBot - Análise de Futebol com IA',
+  description: 'Plataforma de análise de futebol movida por inteligência artificial. Taxa de acerto de 87% comprovada. Conectado à API-Football em tempo real.',
 };
 
 export default function RootLayout({
